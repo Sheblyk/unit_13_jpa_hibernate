@@ -24,6 +24,14 @@ public class Student {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "student")
     private List<Grade> grades = new ArrayList<>();
 
+    public Student(String name, String surname) {
+        this.name = name;
+        this.surname = surname;
+    }
+
+    public Student() {
+    }
+
     public String getName() {
         return name;
     }
@@ -39,12 +47,14 @@ public class Student {
     public void setSurname(String surname) {
         this.surname = surname;
     }
+
     public Group getGroup() {
         return group;
     }
 
     public void setGroup(Group group) {
         this.group = group;
+        group.addStudent(this);
     }
 
     public List<Grade> getGrades() {

@@ -14,18 +14,27 @@ public class Lecturer {
     @Column(nullable = false)
     private String name;
 
+    public Long getLecturer_id() {
+        return lecturer_id;
+    }
+
+    public void setLecturer_id(Long lecturer_id) {
+        this.lecturer_id = lecturer_id;
+    }
+
     @Column(nullable = false)
     private String surname;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "lecturer")
     private List<Lesson> lessons = new ArrayList<>();
 
-    public Lecturer(String name, String surname){
+    public Lecturer(String name, String surname) {
         this.name = name;
         this.surname = surname;
     }
 
-    public Lecturer() {}
+    public Lecturer() {
+    }
 
     public String getName() {
         return name;
@@ -51,7 +60,7 @@ public class Lecturer {
         this.lessons = lessons;
     }
 
-    public void addLesson(Lesson lesson_){
+    public void addLesson(Lesson lesson_) {
         lessons.add(lesson_);
     }
 }

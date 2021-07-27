@@ -32,6 +32,7 @@ public class Course {
     public void setName(String name) {
         this.name = name;
     }
+
     public List<Group> getGroups() {
         return groups;
     }
@@ -40,7 +41,7 @@ public class Course {
         this.groups = groups;
     }
 
-    public void addGroup(Group group){
+    public void addGroup(Group group) {
         groups.add(group);
     }
 }

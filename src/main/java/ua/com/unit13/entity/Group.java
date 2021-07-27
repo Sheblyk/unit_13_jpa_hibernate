@@ -24,6 +24,13 @@ public class Group {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "group")
     private List<Lesson> lessons = new ArrayList<>();
 
+    public Group(String name) {
+        this.name = name;
+    }
+
+    public Group() {
+    }
+
     public String getName() {
         return name;
     }
@@ -41,11 +48,11 @@ public class Group {
         course.addGroup(this);
     }
 
-    public void addLesson(Lesson lesson){
+    public void addLesson(Lesson lesson) {
         lessons.add(lesson);
     }
 
-    public void addStudent(Student student){
+    public void addStudent(Student student) {
         students.add(student);
     }
 

@@ -1,6 +1,7 @@
 package ua.com.unit13.entity;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -11,7 +12,7 @@ public class Lesson {
     private Long lesson_id;
 
     @Column(nullable = false)
-    private Date date;
+    private LocalDateTime date;
 
     @Column(nullable = false)
     private String name;
@@ -28,18 +29,19 @@ public class Lesson {
     @JoinColumn(name = "lecturer_id")
     private Lecturer lecturer;
 
-    public Lesson(Date date, String name) {
+    public Lesson(LocalDateTime date, String name) {
         this.date = date;
         this.name = name;
     }
 
-    public Lesson(){}
+    public Lesson() {
+    }
 
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
@@ -78,4 +80,12 @@ public class Lesson {
         lecturer.addLesson(this);
     }
 
+    @Override
+    public String toString() {
+        return "Lesson{" +
+                "lesson_id=" + lesson_id +
+                ", date=" + date +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

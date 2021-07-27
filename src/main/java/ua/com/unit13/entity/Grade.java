@@ -3,7 +3,7 @@ package ua.com.unit13.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="grade")
+@Table(name = "grade")
 public class Grade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,9 +19,10 @@ public class Grade {
 
     private Byte mark;
 
-    public Grade(){}
+    public Grade() {
+    }
 
-    public Grade(Student student1, Lesson lesson1, Byte mark1){
+    public Grade(Student student1, Lesson lesson1, Byte mark1) {
         this.lesson = lesson1;
         this.mark = mark1;
         this.student = student1;
